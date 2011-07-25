@@ -1,0 +1,91 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use 5.010;
+
+use Config::Tiny;
+use Data::Dumper;
+
+our $VERSION = '0.00';
+
+my $base = '/home/derf/web/org.finalrewind.ccc/in';
+
+my $planets = Config::Tiny->read("${base}/planets.ini");
+my $feeds   = Config::Tiny->read("${base}/feeds.ini");
+
+sub feeds_in_group {
+	my ($group) = @_;
+	my @ret;
+
+	for my $feed ( keys %{$feeds} ) {
+		my @feed_groups = split( / /, $feeds->{$feed}{groups} );
+		if ( $group ~~ \@feed_groups ) {
+			push( @ret, $feed );
+		}
+	}
+
+	return @ret;
+}
+
+for my $group ( keys %{$planets} ) {
+	if ( $group eq 'Planet' ) {
+		next;
+	}
+
+	my $shortcut    = $planets->{$group}{shortcut};
+	my $conf        = Config::Tiny->new();
+	my %planet_conf = %{ $planets->{Planet} };
+
+	$planet_conf{name}       .= " (${group})";
+	$planet_conf{link}       .= "${shortcut}/";
+	$planet_conf{output_dir} .= "/${shortcut}";
+
+	$conf->{Planet} = \%planet_conf;
+
+	for my $feed ( feeds_in_group($group) ) {
+		$conf->{$feed}{name} = $feeds->{$feed}{name};
+	}
+
+	$conf->write("${base}/tmp");
+	system( 'planet', "${base}/tmp" );
+	unlink("${base}/tmp");
+}
+
+__END__
+
+=head1 NAME
+
+=head1 SYNOPSIS
+
+=head1 VERSION
+
+=head1 DESCRIPTION
+
+=head1 OPTIONS
+
+=over
+
+=back
+
+=head1 EXIT STATUS
+
+=head1 CONFIGURATION
+
+None.
+
+=head1 DEPENDENCIES
+
+=over
+
+=back
+
+=head1 BUGS AND LIMITATIONS
+
+=head1 AUTHOR
+
+Copyright (C) 2011 by Daniel Friesel E<lt>derf@finalrewind.orgE<gt>
+
+=head1 LICENSE
+
+  0. You just DO WHAT THE FUCK YOU WANT TO.

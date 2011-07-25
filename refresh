@@ -1,0 +1,8 @@
+#!/bin/sh -e
+## Copyright © 2011 by Daniel Friesel <derf@finalrewind.org>
+## License: WTFPL:
+##   0. You just DO WHAT THE FUCK YOU WANT TO.
+
+/home/derf/web/org.finalrewind.ccc/in/planet-meta
+
+chmod -R a+rX /home/derf/web/org.finalrewind.ccc/out
