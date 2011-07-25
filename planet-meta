@@ -28,6 +28,19 @@ sub feeds_in_group {
 	return @ret;
 }
 
+{
+	my $conf = Config::Tiny->new();
+	$conf->{Planet} = $planets->{Planet};
+
+	for my $feed(keys %{$feeds}) {
+		$conf->{$feed}{name} = $feeds->{$feed}{name};
+	}
+
+	$conf->write("${base}/tmp");
+	system( 'planet', "${base}/tmp");
+	unlink("${base}/tmp");
+}
+
 for my $group ( keys %{$planets} ) {
 	if ( $group eq 'Planet' ) {
 		next;
