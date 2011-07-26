@@ -1,126 +1,214 @@
-<!DOCTYPE HTML>
-<html lang=en>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<meta charset=utf-8>
-<meta http-equiv=refresh content=600>
-<title><TMPL_VAR name></title>
-<link rel=alternate type=application/atom+xml href=/atom.xml title=Feed>
-<style type=text/css media=screen>
-html {
-	background: #ffffff;
-}
+	<title><TMPL_VAR title></title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+	<meta name="Generator" content="planet-venus"/>
+	<link rel="alternate" type="application/atom+xml" href="atom.xml"
+		title="Feed"/>
+	<style type=text/css media=screen>
 
-html,a {
-	color:#333333;
+html {
+	background-color: #ffffff;
+	font: normal medium 'Gill Sans',Optima,Verdana,sans-serif;
 }
 
 body {
-	font:normal medium 'Gill Sans',Optima,Verdana,sans-serif;
-	margin:40px auto 1em auto;
-	width:728px;
-	line-height:180%
+	margin-top: 0;
+	padding-top: 0;
+	background-color: #ffffff;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 57em;
+	border-left: 1px solid #dddddd;
+	border-right: 1px solid #dddddd;
 }
 
-#header {
-	font-size: small;
+div.content {
+	margin-top: 0;
+	padding-top: 1em;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	line-height: 150%;
+	width: 75%;
+	text-align: left;
+	border-right: 1px solid #dddddd;
 }
 
-#footer {
-	clear: both;
-	text-align: center;
-	font-size:small;
+div.entry {
+	text-align: justify;
+}
+
+div.sidebar {
+	margin-top: 2em;
+	padding-right: 0.5em;
+	float: right;
+	width: 21%;
+	margin: 0;
+	line-height: 120%;
+	font-size: 90%;
+}
+
+div.content div.header {
+	margin-left: 10%;
+	text-align: left;
 }
 
 img {
 	border: 0;
 }
 
-h1, .feedflare {
-	display:none;
+h1:before {
+	content: "> ";
 }
 
-.horizontal, .simple li {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	display:inline
+h2:before {
+	content: ">> ";
 }
 
-.simple li:before {
-	content:"+ ";
-}
-.simple > li:first-child:before {
-	content:"";
+h1, h2 {
+	font-family: Monospace;
+	font-weight: normal;
+	color: #666666;
+	margin-top: 2em;
 }
 
-.author {
+h1 {
+	font-size: 180%;
+}
+
+h2 {
+	font-size: 140%;
+}
+
+a {
 	text-decoration: none;
-	display: block;
-	float: right;
-	margin-left: 2em;
-	font-size: small
+	color: #000099;
+}
+
+h2 a:active,
+h2 a:focus,
+h2 a:hover {
+	text-decoration: underline;
+}
+
+a.author {
+	color: #666666;
+}
+
+span.mehl {
+	font-style: italic;
+}
+
+span.info {
+	font-size: 80%;
 }
 
 ul {
-	list-style: none;
-	margin-left: 0;
+	margin-left: 2em;
 	padding-left: 0;
 }
 
 li {
-	clear:both;
+	margin-left: 0;
+	padding-left: 0;
+	list-style: square;
 }
 
-.content {
-	margin:1em 40px;
-}
-</style>
+	</style>
 </head>
 <body>
-<div id="header">
-Aggregierte Feeds von CCC Erfas und Chaos-Treffs
-— <a href="/">Überall</a>
-<!-- – <a href="/bw/">Baden-Württemberg</a> -->
-<!-- – <a href="/by/">Bayern</a> -->
-<!-- – <a href="/be/">Berlin</a> -->
-<!-- – <a href="/bb/">Brandenburg</a> -->
-<!-- – <a href="/hb/">Bremen</a> -->
-– <a href="/hh/">Hamburg</a>
-– <a href="/he/">Hessen</a>
-<!-- – <a href="/mv/">Mecklenburg-Vorpommern</a> -->
-– <a href="/ni/">Niedersachsen</a>
-– <a href="/nw/">Nordrhein-Westfalen</a>
-– <a href="/rp/">Rheinland-Pfalz</a>
-<!-- – <a href="/sl/">Saarland</a> -->
-– <a href="/sn/">Sachsen</a>
-<!-- – <a href="/st/">Sachsen-Anhalt</a> -->
-– <a href="/sh/">Schleswig-Holstein</a>
-<!-- – <a href="/th/">Thüringen</a> -->
+
+<div class="sidebar">
+
+<p>
+<a href="http://ccc.de/">CCC</a>-Erfas und Chaostreffs
+<ul>
+<li> <a href="/">Alle</a> </li>
+<!-- <li> <a href="/bw/">Baden-Württemberg</a> </li> -->
+<!-- <li> <a href="/by/">Bayern</a> </li> -->
+<!-- <li> <a href="/be/">Berlin</a> </li> -->
+<!-- <li> <a href="/bb/">Brandenburg</a> </li> -->
+<!-- <li> <a href="/hb/">Bremen</a> </li> -->
+<li> <a href="/hh/">Hamburg</a> </li>
+<li> <a href="/he/">Hessen</a> </li>
+<!-- <li> <a href="/mv/">Mecklenburg-Vorpommern</a> </li> -->
+<li> <a href="/ni/">Niedersachsen</a> </li>
+<li> <a href="/nw/">Nordrhein-Westfalen</a> </li>
+<li> <a href="/rp/">Rheinland-Pfalz</a> </li>
+<!-- <li> <a href="/sl/">Saarland</a> </li> -->
+<li> <a href="/sn/">Sachsen</a> </li>
+<!-- <li> <a href="/st/">Sachsen-Anhalt</a> </li> -->
+<li> <a href="/sh/">Schleswig-Holstein</a> </li>
+<!-- <li> <a href="/th/">Thüringen</a> </li> -->
+</ul>
+</p>
+
+<p>
+Fehlt was? Mail an <span class="mehl">ccc@finalrewind.org</span>
 <br/>
-Fehlt was? ccc _at_ finalrewind _dot_ org<br/>
-</div>
-<h1><TMPL_VAR name></h1>
+<span class="info">
+(Es gibt auch Treffs ohne Newsfeed)
+</span>
+</p>
+
+<p>
 <ul>
-<TMPL_LOOP Items>
-<TMPL_IF new_date>
-</ul>
-<h2 class="date"><TMPL_VAR new_date></h2>
-<ul>
-</TMPL_IF>
-<li<TMPL_IF channel_language> lang="<TMPL_VAR channel_language>"</TMPL_IF>>
-<a class="author" href="<TMPL_VAR channel_link ESCAPE="HTML">" title="<TMPL_VAR channel_title_plain ESCAPE="HTML">"><TMPL_VAR channel_name ESCAPE="HTML"></a><TMPL_IF title> <a<TMPL_IF link> href="<TMPL_VAR link ESCAPE="HTML">"</TMPL_IF><TMPL_IF title_language> lang="<TMPL_VAR title_language>"</TMPL_IF>><TMPL_VAR title></a></TMPL_IF>
-<TMPL_IF content><div class="content"><TMPL_VAR content></div></TMPL_IF>
-</li>
-</TMPL_LOOP>
-</ul>
-<hr>
-<div id="footer">
-<p>Feeds:</p>
-<ul class="simple horizontal">
 <TMPL_LOOP Channels>
-<li><a href="<TMPL_VAR link ESCAPE="HTML">" title="<TMPL_VAR title ESCAPE="HTML">"><TMPL_VAR name></a></li>
+	<li>
+	<a
+	href="<TMPL_VAR link ESCAPE="HTML">"
+	title="<TMPL_VAR title ESCAPE="HTML">"
+	>
+	<TMPL_VAR name>
+	</a>
+	</li>
 </TMPL_LOOP>
 </ul>
-</div>
+</p>
+
+</div> <!-- sidebar -->
+
+<div class="content">
+
+<TMPL_LOOP Items>
+	<TMPL_IF new_date>
+		<h1><TMPL_VAR new_date></h2>
+	</TMPL_IF>
+
+	<div class="entry">
+
+	<h2>
+	<a
+	class="author"
+	href="<TMPL_VAR channel_link ESCAPE="HTML">"
+	title="<TMPL_VAR channel_title_plain ESCAPE="HTML">"
+	>
+	<TMPL_VAR channel_name ESCAPE="HTML">
+	</a>
+	–
+	<TMPL_IF title>
+		<a
+		class="title"
+		<TMPL_IF link>
+			href="<TMPL_VAR link ESCAPE="HTML">"
+		</TMPL_IF>
+		>
+		<TMPL_VAR title>
+		</a>
+	</TMPL_IF>
+	</h3>
+
+	<TMPL_IF content>
+		<div class="data">
+		<TMPL_VAR content>
+		</div>
+	</TMPL_IF>
+	</div>
+</TMPL_LOOP>
+
+</div> <!-- content -->
+
 </body>
 </html>
