@@ -7,7 +7,7 @@
 	<meta name="Generator" content="planet-venus"/>
 	<link rel="alternate" type="application/atom+xml" href="atom.xml"
 		title="Feed"/>
-	<style type=text/css media=screen>
+	<style type="text/css" media="screen">
 
 html {
 	background-color: #ffffff;
@@ -41,7 +41,7 @@ div.entry {
 }
 
 div.sidebar {
-	margin-top: 2em;
+	padding-top: 2em;
 	padding-right: 0.5em;
 	float: right;
 	width: 21%;
@@ -122,7 +122,7 @@ li {
 
 <div class="sidebar">
 
-<p>
+<div>
 <a href="http://ccc.de/">CCC</a>-Erfas und Chaostreffs
 <ul>
 <li> <a href="/">Alle</a> </li>
@@ -143,7 +143,7 @@ li {
 <li> <a href="/sh/">Schleswig-Holstein</a> </li>
 <!-- <li> <a href="/th/">Thüringen</a> </li> -->
 </ul>
-</p>
+</div>
 
 <p>
 Fehlt was? Mail an <span class="mehl">ccc@finalrewind.org</span>
@@ -153,7 +153,7 @@ Fehlt was? Mail an <span class="mehl">ccc@finalrewind.org</span>
 </span>
 </p>
 
-<p>
+<div>
 <ul>
 <TMPL_LOOP Channels>
 	<li>
@@ -166,7 +166,7 @@ Fehlt was? Mail an <span class="mehl">ccc@finalrewind.org</span>
 	</li>
 </TMPL_LOOP>
 </ul>
-</p>
+</div>
 
 </div> <!-- sidebar -->
 
@@ -174,7 +174,7 @@ Fehlt was? Mail an <span class="mehl">ccc@finalrewind.org</span>
 
 <TMPL_LOOP Items>
 	<TMPL_IF new_date>
-		<h1><TMPL_VAR new_date></h2>
+		<h1><TMPL_VAR new_date></h1>
 	</TMPL_IF>
 
 	<div class="entry">
@@ -198,7 +198,7 @@ Fehlt was? Mail an <span class="mehl">ccc@finalrewind.org</span>
 		<TMPL_VAR title>
 		</a>
 	</TMPL_IF>
-	</h3>
+	</h2>
 
 	<TMPL_IF content>
 		<div class="data">
